@@ -39,7 +39,7 @@
       <h2 class="text-white mb-3">ดูต่อสำหรับคุณ</h2>
       <div class="row">
         <div class="col-md-2 col-6 mb-3" *ngFor="let video of videos">
-          <a [href]="video.videoUrl" target="_blank" class="text-decoration-none">
+          <a [routerLink]="['/watch', video.videoId]" class="btn btn-light">
             <div class="card bg-dark">
               <img [src]="video.thumbnail" class="card-img-top">
               <div class="card-body text-white text-center">
@@ -51,4 +51,3 @@
       </div>
     </div>
   </div>
-  
