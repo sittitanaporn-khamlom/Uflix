@@ -1,24 +1,50 @@
 <div class="video-container">
-  <iframe [src]="videoUrl | safeUrl"
-          title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>{{ videoTitle }}</h2>
-      <p>{{ videoDescription }}</p>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">เรื่องที่เกี่ยวข้อง</h5>
-          <ul class="list-group">
-            <li class="list-group-item">Related Video 1</li>
-            <li class="list-group-item">Related Video 2</li>
-            <li class="list-group-item">Related Video 3</li>
-          </ul>
+    <iframe [src]="videoUrl | safeUrl" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+  </div>
+  
+  <div class="container-fluid watch-page mr-3">
+    <div class="row">
+      <!-- วิดีโอหลัก (ใหญ่) -->
+      <div class="col-md-8 main-video-section">
+        <h2 class="video-title">{{ videoTitle }}</h2>
+        <div class="video-stats">
+          <span>{{ viewCount | number }} ครั้งดู</span> • 
+          <span>{{ publishedDate | date:'dd MMM yyyy' }}</span>
+        </div>
+        <div class="channel-info d-flex align-items-center">
+          <img class="channel-avatar" [src]="channelAvatar" alt="{{ channelName }}">
+          <div class="channel-details ml-2">
+            <h5>{{ channelName }}</h5>
+            <button
+              class="btn"
+              [ngClass]="isSubscribed ? 'unsubscribe-btn' : 'subscribe-btn'"
+              (click)="toggleSubscribe()"
+            >
+              {{ isSubscribed ? 'Unsubscribe' : 'Subscribe' }}
+            </button>
+          </div>
+        </div>
+        <p class="video-description">{{ videoDescription }}</p>
+      </div>
+  
+      <!-- รายการคลิปด้านขวา -->
+      <div class="col-md-4 side-video-section">
+        <h4 class="text-white mb-3">คลิปทั้งหมด</h4>
+        <div class="side-videos">
+          <div class="side-video-item" *ngFor="let video of allVideos">
+            <a [routerLink]="['/watch', video.videoId]" class="d-flex side-video-link">
+              <img [src]="video.thumbnail" alt="{{ video.title }}" class="side-video-thumbnail">
+              <div class="side-video-info ml-2">
+                <p class="side-video-title mb-1">{{ video.title }}</p>
+                <p class="side-video-channel mb-1">{{ video.channelName }}</p>
+                <p class="side-video-meta mb-0">
+                  {{ video.viewCount | number }} views • {{ video.publishedDate | date:'dd MMM yyyy' }}
+                </p>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  
