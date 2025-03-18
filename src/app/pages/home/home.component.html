@@ -17,7 +17,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <div class="hero-section">
+  <div class="hero-section mt-5">
     <div class="hero-overlay"></div>
     <iframe 
       class="hero-video" 
@@ -36,17 +36,103 @@
 
 <!-- Video Section -->
 <div class="video-section">
-  <h2 class="text-white text-center mb-3">เรื่องเด็ดวันนี้เพื่อคุณ</h2>
+  <h2 class="text-white text-left mb-3 px-3">หนังแนะนำ</h2>
+  <br>
   <div class="video-container">
-    <button class="scroll-btn left" (click)="scrollLeft()">&#10094;</button>
-    <div class="video-list" id="videoList">
+    <button class="scroll-btn left" (click)="scrollLeft('videoList1')">&#10094;</button>
+    <div class="video-list" id="videoList1">
       <div class="video-card" *ngFor="let video of videos">
         <a [href]="'watch/' + video.videoUrl" target="_blank">
           <img [src]="video.thumbnail" class="video-thumbnail">
         </a>
       </div>
     </div>
-    <button class="scroll-btn right" (click)="scrollRight()">&#10095;</button>
+    <button class="scroll-btn right" (click)="scrollRight('videoList1')">&#10095;</button>
+  </div>
+</div>
+
+<!-- มาใหม่ล่าสุด -->
+<div class="video-section">
+  <h2 class="text-white text-left mb-3 px-3">มาใหม่ล่าสุด</h2>
+  <br>
+  <div class="video-container">
+    <button class="scroll-btn left" (click)="scrollLeft('videoList2')">&#10094;</button>
+    <div class="video-list" id="videoList2">
+      <div class="video-card" *ngFor="let video of videos2">
+        <a [href]="video.videoUrl" target="_blank">
+          <img [src]="video.thumbnail" class="video-thumbnail">
+        </a>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollRight('videoList2')">&#10095;</button>
+  </div>
+</div>
+
+<!-- ซีรีส์ยอดนิยม -->
+<div class="video-section">
+  <h2 class="text-white text-left mb-3 px-3">ซีรีส์ยอดนิยม</h2>
+  <br>
+  <div class="video-container">
+    <button class="scroll-btn left" (click)="scrollLeft('videoList3')">&#10094;</button>
+    <div class="video-list" id="videoList3">
+      <div class="video-card" *ngFor="let video of videos3">
+        <a [href]="video.videoUrl" target="_blank">
+          <img [src]="video.thumbnail" class="video-thumbnail">
+        </a>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollRight('videoList3')">&#10095;</button>
+  </div>
+</div>
+
+<!-- อนิเมะมาแรง -->
+<div class="video-section">
+  <h2 class="text-white text-left mb-3 px-3">อนิเมะมาแรง</h2>
+  <br>
+  <div class="video-container">
+    <button class="scroll-btn left" (click)="scrollLeft('videoList4')">&#10094;</button>
+    <div class="video-list" id="videoList4">
+      <div class="video-card" *ngFor="let video of videos4">
+        <a [href]="video.videoUrl" target="_blank">
+          <img [src]="video.thumbnail" class="video-thumbnail">
+        </a>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollRight('videoList4')">&#10095;</button>
+  </div>
+</div>
+
+<!-- ละครไทยที่คุณอาจชอบ -->
+<div class="video-section">
+  <h2 class="text-white text-left mb-3 px-3">ละครไทยที่คุณอาจชอบ</h2>
+  <br>
+  <div class="video-container">
+    <button class="scroll-btn left" (click)="scrollLeft('videoList5')">&#10094;</button>
+    <div class="video-list" id="videoList5">
+      <div class="video-card" *ngFor="let video of videos5">
+        <a [href]="video.videoUrl" target="_blank">
+          <img [src]="video.thumbnail" class="video-thumbnail">
+        </a>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollRight('videoList5')">&#10095;</button>
+  </div>
+</div>
+
+<!-- หนังแอ็กชันสุดมันส์ -->
+<div class="video-section">
+  <h2 class="text-white text-left mb-3 px-3">หนังแอ็กชันสุดมันส์</h2>
+  <br>
+  <div class="video-container">
+    <button class="scroll-btn left" (click)="scrollLeft('videoList6')">&#10094;</button>
+    <div class="video-list" id="videoList6">
+      <div class="video-card" *ngFor="let video of videos6">
+        <a [href]="video.videoUrl" target="_blank">
+          <img [src]="video.thumbnail" class="video-thumbnail">
+        </a>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollRight('videoList6')">&#10095;</button>
   </div>
 </div>
 
