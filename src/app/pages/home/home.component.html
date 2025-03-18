@@ -1,53 +1,52 @@
 <div class="container-fluid p-0">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black px-4">
-      <a class="navbar-brand text-danger fw-bold" href="#">UFLIX</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link text-white" href="#">หน้าหลัก</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">รายการทีวี</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">ภาพยนตร์</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">ใหม่และกำลังฮิต</a></li>
-        </ul>
-      </div>
-    </nav>
-  
-    <!-- Hero Section (Fullscreen Video) -->
-    <div class="hero-section">
-      <div class="hero-overlay">
-        <iframe 
-          width="100%" 
-          height="100vh" 
-          src="https://www.youtube.com/embed/tjujvMkqWe4?autoplay=1&mute=1&loop=1&playlist=tjujvMkqWe4" 
-          frameborder="0" 
-          allow="autoplay; encrypted-media" 
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="hero-content">
-        <h1>The Witcher</h1>
-        <p>โชคชะตาพาเขาสู่เส้นทางแห่งนักล่าอสูร</p>
-        <div>
-          <a href="https://www.youtube.com/watch?v=tjujvMkqWe4" target="_blank" class="btn btn-light">▶ เล่น</a>
-          <a href="#" class="btn btn-secondary">ℹ ข้อมูลเพิ่มเติม</a>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-4" [class.scrolled]="isScrolled">
+    <a class="navbar-brand text-danger fw-bold" href="#">UFLIX</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto"> 
+        <li class="nav-item"><a class="nav-link text-white" href="#">หน้าหลัก</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">รายการทีวี</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">ภาพยนตร์</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">ใหม่และกำลังฮิต</a></li>
+      </ul>
+      
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-overlay"></div>
+    <iframe 
+      class="hero-video" 
+      src="https://www.youtube.com/embed/tjujvMkqWe4?autoplay=1&mute=1&loop=1&playlist=tjujvMkqWe4"
+      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    </iframe>
+    <div class="hero-content">
+      <h1 class="hero-title">THE WITCHER</h1>
+      <p class="hero-description">มีตอนใหม่ วันพุธ นี้</p>
+      <div>
+        <a href="https://www.youtube.com/watch?v=tjujvMkqWe4" target="_blank" class="btn btn-light">▶ เล่น</a>
+        <a href="#" class="btn btn-secondary">ℹ ข้อมูลเพิ่มเติม</a>
       </div>
     </div>
-  
-    <!-- Video Section -->
-    <div class="video-section container">
-      <h2 class="text-white mb-3">แนะนำสำหรับคุณ</h2>
-      <div class="row">
-        <div class="col-md-2 col-6 mb-3" *ngFor="let video of videos">
-          <a [href]="video.videoUrl" target="_blank" class="text-decoration-none">
-            <div class="card bg-dark">
-              <img [src]="video.thumbnail" class="card-img-top">
-              <div class="card-body text-white text-center">
-                <h6 class="m-0">{{ video.title }}</h6>
-              </div>
-            </div>
-          </a>
-        </div>
+  </div>
+
+<!-- Video Section -->
+<div class="video-section">
+  <h2 class="text-white text-center mb-3">เรื่องเด็ดวันนี้เพื่อคุณ</h2>
+  <div class="video-container">
+    <button class="scroll-btn left" (click)="scrollLeft()">&#10094;</button>
+    <div class="video-list" id="videoList">
+      <div class="video-card" *ngFor="let video of videos">
+        <a [href]="video.videoUrl" target="_blank">
+          <img [src]="video.thumbnail" class="video-thumbnail">
+        </a>
       </div>
     </div>
+    <button class="scroll-btn right" (click)="scrollRight()">&#10095;</button>
+  </div>
 </div>
+
