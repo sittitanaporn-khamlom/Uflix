@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -18,12 +18,13 @@ export class WatchComponent {
   videoDescription: string = 'รายละเอียดวิดีโอ, คำอธิบาย และข้อมูลเพิ่มเติม';
   viewCount: number = 0;
   publishedDate: Date = new Date();
-  channelName: string = 'ชื่อช่องจริง';
+  channelName: string = 'Uflix';
   channelAvatar: string = 'assets/images/channel-avatar.jpg';
   allVideos: any[] = [];
   
   // ตัวแปรสำหรับติดตามสถานะ Subscribe/Unsubscribe
   isSubscribed: boolean = false;
+  isScrolled = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,6 +55,10 @@ export class WatchComponent {
     return `https://www.youtube.com/embed/${this.videoId}`;
   }
 
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    this.isScrolled = window.scrollY > 50;
+  }
   // ฟังก์ชันสำหรับเปลี่ยนสถานะ Subscribe/Unsubscribe
   toggleSubscribe() {
     this.isSubscribed = !this.isSubscribed;

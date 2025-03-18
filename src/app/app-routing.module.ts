@@ -5,9 +5,9 @@ import { WatchComponent } from './pages/watch/watch.component';
 import { VideoService } from './services/video.service'; // เพิ่ม Video Service
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'watch/:id', component: WatchComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'watch/:id', component: WatchComponent }
 ];
 
 @NgModule({

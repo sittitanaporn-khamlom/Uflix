@@ -1,4 +1,21 @@
-<div class="video-container">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-4" [class.scrolled]="isScrolled">
+    <a class="navbar-brand text-danger fw-bold" href="#">UFLIX</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto"> 
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/']">หน้าหลัก</a></li>
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/channel']">ช่องแนะนำ</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">ภาพยนตร์</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">ใหม่และกำลังฮิต</a></li>
+      </ul>
+      
+    </div>
+  </nav>
+
+<div class="video-container mt-5 mb-0">
     <iframe [src]="videoUrl | safeUrl" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
   </div>
   
