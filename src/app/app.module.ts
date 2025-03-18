@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';  // ✅ ต้อง import RouterModule
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { ChannelComponent } from './pages/channel/channel.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule,  // ✅ ต้องใส่ RouterModule เพื่อให้ <router-outlet> ทำงาน
-    AppRoutingModule  // ✅ ตรวจสอบว่ามีการ import Routing Module แล้ว
+    RouterModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

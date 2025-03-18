@@ -1,0 +1,34 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-4" [class.scrolled]="isScrolled">
+    <a class="navbar-brand text-danger fw-bold" href="#">UFLIX</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto"> 
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/']">หน้าหลัก</a></li>
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/channel']">ช่องแนะนำ</a></li>
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/video']">วิดีโอแนะนำ</a></li>
+      </ul>
+      
+    </div>
+  </nav>
+
+<div class="video-list-container">
+    <h2 class="section-title mt-5">วิดีโอแนะนำ</h2>
+  
+    <div class="video-grid">
+      <div class="video-card" *ngFor="let video of videos">
+        <a [routerLink]="['/watch', video.videoId]">
+          <img [src]="video.thumbnail" [alt]="video.title" class="video-thumbnail" style="width: 300px; height: 180px; object-fit: cover;">
+        </a>
+        <div class="video-details">
+          <h3 class="video-title">
+            <a [routerLink]="['/watch', video.videoId]">{{ video.title }}</a>
+          </h3>
+          <p class="channel-name">{{ video.channelName }}</p>
+          <p class="video-meta">{{ video.views | number }} view</p>
+        </div>
+      </div>
+    </div>
+  </div>

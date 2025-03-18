@@ -7,10 +7,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto"> 
-        <li class="nav-item"><a class="nav-link text-white" href="#">หน้าหลัก</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">ช่องแนะนำ</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">ภาพยนตร์</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">ใหม่และกำลังฮิต</a></li>
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/']">หน้าหลัก</a></li>
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/channel']">ช่องแนะนำ</a></li>
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/video']">วิดีโอแนะนำ</a></li>
       </ul>
       
     </div>
@@ -59,7 +58,7 @@
     <button class="scroll-btn left" (click)="scrollLeft('videoList2')">&#10094;</button>
     <div class="video-list" id="videoList2">
       <div class="video-card" *ngFor="let video of videos2">
-        <a [href]="video.videoUrl" target="_blank">
+        <a [href]="'watch/' + video.videoUrl" target="_blank">
           <img [src]="video.thumbnail" class="video-thumbnail">
         </a>
       </div>
@@ -76,7 +75,7 @@
     <button class="scroll-btn left" (click)="scrollLeft('videoList3')">&#10094;</button>
     <div class="video-list" id="videoList3">
       <div class="video-card" *ngFor="let video of videos3">
-        <a [href]="video.videoUrl" target="_blank">
+        <a [href]="'watch/' + video.videoUrl" target="_blank">
           <img [src]="video.thumbnail" class="video-thumbnail">
         </a>
       </div>
@@ -93,7 +92,7 @@
     <button class="scroll-btn left" (click)="scrollLeft('videoList4')">&#10094;</button>
     <div class="video-list" id="videoList4">
       <div class="video-card" *ngFor="let video of videos4">
-        <a [href]="video.videoUrl" target="_blank">
+        <a [href]="'watch/' + video.videoUrl" target="_blank">
           <img [src]="video.thumbnail" class="video-thumbnail">
         </a>
       </div>
@@ -110,7 +109,7 @@
     <button class="scroll-btn left" (click)="scrollLeft('videoList5')">&#10094;</button>
     <div class="video-list" id="videoList5">
       <div class="video-card" *ngFor="let video of videos5">
-        <a [href]="video.videoUrl" target="_blank">
+        <a [href]="'watch/' + video.videoUrl" target="_blank">
           <img [src]="video.thumbnail" class="video-thumbnail">
         </a>
       </div>
@@ -127,7 +126,7 @@
     <button class="scroll-btn left" (click)="scrollLeft('videoList6')">&#10094;</button>
     <div class="video-list" id="videoList6">
       <div class="video-card" *ngFor="let video of videos6">
-        <a [href]="video.videoUrl" target="_blank">
+        <a [href]="'watch/' + video.videoUrl" target="_blank">
           <img [src]="video.thumbnail" class="video-thumbnail">
         </a>
       </div>

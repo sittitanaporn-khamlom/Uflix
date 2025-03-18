@@ -1,0 +1,60 @@
+<div class="container-fluid p-0">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-4" [class.scrolled]="isScrolled">
+      <a class="navbar-brand text-danger fw-bold" href="#">UFLIX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto"> 
+          <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/']">หน้าหลัก</a></li>
+          <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/channel']">ช่องแนะนำ</a></li>
+          <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/video']">วิดีโอแนะนำ</a></li>
+        </ul>
+        
+      </div>
+    </nav>
+
+<div class="channel-container mt-5">
+    <!-- Header ของช่อง -->
+    <div class="channel-header">
+    <img src="https://yt3.ggpht.com/LBaR6XOwd7cnZn0-MaDvIqPForj9JtP4_eC9i-JbfSHjFsutnZw6nwMjls8sUvBSHovXR5wshCQ=s176-c-k-c0x00ffffff-no-rj-mo" alt="UFLIX" class="channel-avatar" style="width: 100px; height: auto; object-fit: cover; border-radius: 100%;">
+      <div class="channel-info">
+        <h1 class="channel-title">UFLIX</h1>
+        <p class="channel-meta">UFLIX · ผู้ติดตาม {{ subscriberCount | number }} คน · วิดีโอ {{ videoCount }} รายการ</p>
+        <p class="channel-description">"UFLIX" ช่องรวมความบันเทิง วิดีโอสุดฮา และการผจญภัยมากมาย!</p>
+        <a href="https://instagram.com/uflix" target="_blank" class="channel-link">instagram.com/uflix</a>
+        <br>
+        <br>
+        <button class="btn btn-outline-light follow-btn">ติดตามแล้ว</button>
+      </div>
+    </div>
+  
+    <!-- เมนู -->
+    <nav class="channel-nav">
+      <ul>
+        <li class="active">หน้าแรก</li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/video']">วิดีโอแนะนำ</a></li>
+      </ul>
+    </nav>
+  
+    <!-- วิดีโอแนะนำ -->
+    <div class="video-list">
+      <h2>สำหรับคุณ</h2>
+      <br>
+      <div class="video-grid">
+        <div class="video-card" *ngFor="let video of videos">
+          <a [routerLink]="['/watch', video.videoId]">
+            <img [src]="video.thumbnail" [alt]="video.title" class="video-thumbnail">
+          </a>
+          <div class="video-details">
+            <h3 class="video-title">
+              <a [routerLink]="['/watch', video.videoId]">{{ video.title }}</a>
+            </h3>
+            <p class="video-meta">{{ video.chaviews | number }} view</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -8,8 +8,7 @@
       <ul class="navbar-nav me-auto"> 
         <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/']">หน้าหลัก</a></li>
         <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/channel']">ช่องแนะนำ</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">ภาพยนตร์</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">ใหม่และกำลังฮิต</a></li>
+        <li class="nav-item"><a class="nav-link text-white" [routerLink]="['/video']">วิดีโอแนะนำ</a></li>
       </ul>
       
     </div>
@@ -49,19 +48,18 @@
         <h4 class="text-white mb-3">คลิปทั้งหมด</h4>
         <div class="side-videos">
           <div class="side-video-item" *ngFor="let video of allVideos">
-            <a [routerLink]="['/watch', video.videoId]" class="d-flex side-video-link">
-              <img [src]="video.thumbnail" alt="{{ video.title }}" class="side-video-thumbnail">
-              <div class="side-video-info ml-2">
-                <p class="side-video-title mb-1">{{ video.title }}</p>
-                <p class="side-video-channel mb-1">{{ video.channelName }}</p>
-                <p class="side-video-meta mb-0">
-                  {{ video.viewCount | number }} views • {{ video.publishedDate | date:'dd MMM yyyy' }}
-                </p>
-              </div>
-            </a>
+        <a [routerLink]="['/watch', video.videoId]" class="d-flex side-video-link">
+          <img [src]="video.thumbnail" alt="{{ video.title }}" class="side-video-thumbnail" style="width: 200px; height: 112px; object-fit: cover;">
+          <div class="side-video-info ml-2">
+            <p class="side-video-title mb-1">{{ video.title }}</p>
+            <p class="side-video-channel mb-1">{{ video.channelName }}</p>
+            <p class="side-video-meta mb-0">
+          {{ video.viewCount | number }} views • {{ video.publishedDate | date:'dd MMM yyyy' }}
+            </p>
+          </div>
+        </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  

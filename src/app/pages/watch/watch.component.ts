@@ -43,9 +43,9 @@ export class WatchComponent {
       if (currentVideo) {
         this.videoTitle = currentVideo.title;
         this.videoDescription = currentVideo.description || `รายละเอียดของวิดีโอ: ${currentVideo.title}`;
-        this.viewCount = currentVideo.viewCount || 0;
+        this.viewCount = Math.floor(Math.random() * 10000000) + 1;
         this.publishedDate = currentVideo.publishedDate ? new Date(currentVideo.publishedDate) : new Date();
-        this.channelName = currentVideo.channelName || 'ชื่อช่องจริง';
+        this.channelName = currentVideo.channelName || 'Netflix';
         this.channelAvatar = currentVideo.channelAvatar || 'https://yt3.ggpht.com/LBaR6XOwd7cnZn0-MaDvIqPForj9JtP4_eC9i-JbfSHjFsutnZw6nwMjls8sUvBSHovXR5wshCQ=s176-c-k-c0x00ffffff-no-rj-mo';
       }
     });
