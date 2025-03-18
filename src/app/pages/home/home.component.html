@@ -1,0 +1,54 @@
+<div class="container-fluid p-0">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black px-4">
+      <a class="navbar-brand text-danger fw-bold" href="#">UFLIX</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link text-white" href="#">หน้าหลัก</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">รายการทีวี</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">ภาพยนตร์</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">ใหม่และกำลังฮิต</a></li>
+        </ul>
+      </div>
+    </nav>
+  
+    <!-- Hero Section with Video -->
+    <div class="hero-section">
+      <div class="hero-overlay">
+        <iframe 
+          width="100%" 
+          height="100%" 
+          src="https://www.youtube.com/embed/b9EkMc79ZSU?autoplay=1&mute=1&loop=1&playlist=b9EkMc79ZSU" 
+          frameborder="0" 
+          allow="autoplay; encrypted-media" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="hero-content">
+        <h1>สี่พี่น้องยุซึกิ</h1>
+        <p>ครอบครัวนี้มีแต่รัก ❤️</p>
+        <div>
+          <a href="https://www.youtube.com/watch?v=b9EkMc79ZSU" target="_blank" class="btn btn-light">▶ เล่น</a>
+          <a href="#" class="btn btn-secondary">ℹ ข้อมูลเพิ่มเติม</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Video Section -->
+    <div class="video-section container">
+      <h2 class="text-white mb-3">ดูต่อสำหรับคุณ</h2>
+      <div class="row">
+        <div class="col-md-2 col-6 mb-3" *ngFor="let video of videos">
+          <a [href]="video.videoUrl" target="_blank" class="text-decoration-none">
+            <div class="card bg-dark">
+              <img [src]="video.thumbnail" class="card-img-top">
+              <div class="card-body text-white text-center">
+                <h6 class="m-0">{{ video.title }}</h6>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
