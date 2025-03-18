@@ -69,8 +69,8 @@
 .video-list {
   display: flex;
   gap: 15px;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
+  overflow: hidden; /* ❌ เอาการเลื่อนออก */
+  scroll-behavior: unset; /* ❌ ปิด scroll อัตโนมัติ */
   white-space: nowrap;
   padding: 10px;
 }
@@ -94,10 +94,10 @@
   color: white;
 }
 
-/* ปุ่ม Scroll */
+/* ปุ่มเลื่อนซ้าย-ขวา */
 .scroll-btn {
   position: absolute;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0); /* ❗ เริ่มต้นโปร่งใส */
   color: white;
   border: none;
   font-size: 24px;
@@ -106,10 +106,46 @@
   height: 100%;
   top: 0;
   z-index: 10;
+  transition: background 0.3s ease-in-out; /* ❗ ทำให้เปลี่ยนสีมีเอฟเฟกต์ */
 }
+
+/* เมื่อโฮเวอร์ให้เปลี่ยนเป็นสีดำ */
+.scroll-btn:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ตำแหน่งปุ่ม */
 .left {
   left: 0;
 }
+
 .right {
   right: 0;
+}
+
+/* ทำให้พื้นหลังเป็นสีดำทั่วทั้งหน้า */
+body, html {
+  background-color: #141414; /* สีดำ Netflix */
+  color: white; /* ตั้งค่าข้อความเป็นสีขาวเพื่อให้อ่านง่าย */
+  margin: 0;
+  padding: 0;
+}
+
+/* ทำให้ `container-fluid` กินพื้นที่เต็มจอ */
+.container-fluid {
+  background-color: #141414;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 50px; /* กันไม่ให้เนื้อหาติดขอบล่าง */
+}
+
+/* ปรับสีพื้นหลังของ `video-section` ให้เนียนกับหน้าหลัก */
+.video-section {
+  background-color: #141414; /* สีดำ */
+  padding: 20px 0;
+}
+
+/* ปรับ Navbar ให้กลมกลืน */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
